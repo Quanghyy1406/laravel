@@ -1,39 +1,43 @@
 @extends('dashboard')
-
+<style>
+       h6 {
+        text-align: center;
+    }
+</style>
 @section('content')
-    <main class="login-form " style="background-color: #f4f4f9; min-height: 100vh; ">
-        <div class="cotainer pt-5">
+    <main class="login-form">
+        <div class="cotainer">
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div class="card">
-                        <h3 class="text-center pt-5 pb-3">Đăng nhập</h3>
+                        <h3 class="card-header text-center">Đăng Nhập</h3>
                         <div class="card-body">
                             <form method="POST" action="{{ route('user.authUser') }}">
                                 @csrf
-                                <div class="form-group mb-3 text-center">
-                                     <label for="name" class="form-label">UserName</label>
+                                <div class="form-group mb-3">
+                                    <h6>name</h6>
                                     <input type="text" id="name" class="form-control" name="name" required
                                            autofocus>
                                     @if ($errors->has('name'))
                                         <span class="text-danger">{{ $errors->first('name') }}</span>
                                     @endif
                                 </div>
-                                <div class="form-group mb-3 text-center">
-                                     <label for="username" class="form-label">Password</label>
-                                    <input type="password" id="password" class="form-control" name="password" required>
+                                <div class="form-group mb-3">
+                                    <h6>Password</h6>
+                                    <input type="password"  id="password" class="form-control" name="password" required>
                                     @if ($errors->has('password'))
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
                                 </div>
-                                <!-- <div class="form-group mb-3">
+                                <div class="form-group mb-3">
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" name="remember"> Remember Me
                                         </label>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="d-grid mx-auto">
-                                    <button type="submit" class="btn btn-primary btn-block">Signin</button>
+                                    <button type="submit" class="btn btn-dark btn-block">Signin</button>
                                 </div>
                             </form>
                         </div>

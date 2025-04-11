@@ -29,6 +29,8 @@ class CrudUserController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'live' => 'required',
+            'Github' => 'required',
             'password' => 'required',
         ]);
 
